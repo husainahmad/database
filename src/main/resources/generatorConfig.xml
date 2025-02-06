@@ -12,9 +12,9 @@
 
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3308/db-harmoni-master"
-                        userId="root"
-                        password="secret">
+                        connectionURL="jdbc:mysql://localhost:3308/db-harmoni-auth"
+                        userId="pos-user"
+                        password="forlearn27">
         </jdbcConnection>
 
         <javaTypeResolver >
@@ -34,15 +34,25 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table schema="db-harmoni-pos-transaction" tableName="orders" domainObjectName="Order">
+        <table schema="db-harmoni-auth" tableName="users" domainObjectName="User">
             <generatedKey column="ID" sqlStatement="Mysql" identity="true" />
         </table>
 
-        <table schema="db-harmoni-pos-transaction" tableName="order_details" domainObjectName="OrderDetail">
+        <table schema="db-harmoni-auth" tableName="user_roles" domainObjectName="UserRole">
+        </table>
+
+        <table schema="db-harmoni-auth" tableName="roles" domainObjectName="Role">
             <generatedKey column="ID" sqlStatement="Mysql" identity="true" />
         </table>
 
-        <table schema="db-harmoni-pos-transaction" tableName="order_payments" domainObjectName="OrderPayment">
+        <table schema="db-harmoni-auth" tableName="role_permissions" domainObjectName="RolePermission">
+        </table>
+
+        <table schema="db-harmoni-auth" tableName="refresh_tokens" domainObjectName="RefreshToken">
+            <generatedKey column="ID" sqlStatement="Mysql" identity="true" />
+        </table>
+
+        <table schema="db-harmoni-auth" tableName="permissions" domainObjectName="Permission">
             <generatedKey column="ID" sqlStatement="Mysql" identity="true" />
         </table>
 
